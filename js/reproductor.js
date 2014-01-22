@@ -1,6 +1,5 @@
 (function($) {
   $('.rep-item').on('click', function(e){
-  	debugger;
   	e.preventDefault();
   	var nid = $(this).attr('data-nid');
   	var yid = $(this).attr('data-yid');
