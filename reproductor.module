@@ -62,12 +62,18 @@ function reproductor_block_view($delta = '') {
 */
 function theme_reproductor($variables) {
   $output = '';
-  $output .= '<h1>Reporductor</h1>';
+  $output .= '<section class="secciones">';
+  $output .= '<div class="view-header"><h1>TV Noticias</h1></div>';
+  $output .= '<div class="rep-lista">';
   $output .= '<ul>';
   foreach($variables['videos'] as $nid) {
    $output .= theme('reproductor_item', array('nid' => $nid));
   }
   $output .= '</ul>';
+  $output .= '</div>';
+  $output .= '<div class="rep-play">';
+  $output .= '</div>';
+  $output .= '</section>';
 return $output;
 }
 
