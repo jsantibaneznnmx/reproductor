@@ -6,7 +6,7 @@
   	var yid = $(this).attr('data-yid');
   	var url = '//www.youtube.com/embed/' + yid + '?rel=0';
   	var nodo = Drupal.settings.basePath + 'node/' + nid;
-  	var titulo $(this).children('.rep-item-datos h3').html();
+  	var titulo = $(this).children('.rep-item-datos h3').html();
   	var teaser = $(this).children('.rep-item-datos p').html();
   	//cambiamos la clase del item seleccionado
   	$('.rep-item').removeClass('rep-item-select');
