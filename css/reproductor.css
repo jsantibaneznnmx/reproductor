@@ -28,7 +28,7 @@ overflow: hidden;
 	cursor: hand;
 	cursor: pointer;
 }
-.rep-item:hover {
+.rep-item:hover, .rep-item-select {
 	background-color: whitesmoke;
 }
 .rep-item img {

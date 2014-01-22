@@ -92,7 +92,8 @@ return $output;
 function theme_reproductor_item($variables) {
   $temp_node = node_load($variables['nid']);
   $output = '';
-  $output .= '<li class="rep-item ' . ($variables['number'] == 0)? 'rep-item-select' . '" data-nid="' . $temp_node->nid . '">';
+  $itemsel = ($variables['number'] == 0)? 'rep-item-select';
+  $output .= '<li class="rep-item ' . $itemsel . '" data-nid="' . $temp_node->nid . '">';
   $output .= '<img src="http://img.youtube.com/vi/' . $temp_node->field_youtube['und'][0]['video_id'] . '/3.jpg" />';
   $output .= '<div class="rep-item-datos">';
   $output .= '<h3>' . truncate_utf8($temp_node->title, 50, TRUE, TRUE) . '</h3>';
