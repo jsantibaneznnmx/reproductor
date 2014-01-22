@@ -44,10 +44,6 @@ function reproductor_block_info() {
  */
 function reproductor_block_view($delta = '') {
 
-
-  $publicidad = dfp_serve_external_data('carrusel', $path);
-  $nids = _carrusel_get_all_data($path);
-
   switch($delta) {
     case 'reproductor_nnmx':
       $block['subject'] = '';
