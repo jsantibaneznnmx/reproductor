@@ -88,8 +88,15 @@ return $output;
 * them carrusel
 */
 function theme_reproductor_item($variables) {
+  $temp_node = node_load($variables['nid']);
   $output = '';
-  $output .= '<li>' . $variables['nid'] . '</li>';
+  $output .= '<li class="rep-item">';
+  $output .= '<img src="http://img.youtube.com/vi/' . $temp_node->field_youtube['und'][0]['video_id'] . '/3.jpg" />';
+  $output .= '<div class="rep-item-datos">';
+  $output .= '<h3>' . $temp_node->title . '</h3>';
+  $output .= '<p>' . $temp_node->body['und'][0]['safe_summary'] . '</p>';
+  $output .= '</div>';
+  $output .= '</li>';
 return $output;
 }
 
