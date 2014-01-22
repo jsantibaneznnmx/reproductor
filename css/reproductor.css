@@ -24,8 +24,17 @@ float: left;
 max-height: 230px;
 overflow: hidden;
 }
+.rep-item {
+	cursor: hand;
+	cursor: pointer;
+}
+.rep-item:hover {
+	background-color: whitesmoke;
+}
 .rep-item img {
-	margin: 2%;
+width: 40%;
+margin: 2%;
+height: auto;
 }
 .rep-item .rep-item-datos {
 vertical-align: top;
