@@ -1,0 +1,91 @@
+<?php
+/**
+ * @file
+ * Module file for dfp.
+ */
+
+/**
+ * @defgroup Carrusel: Block
+ * @ingroup nnmx
+ * @{
+ * create a custom slideshow.
+ */
+
+
+/**
+ * Implements hook_theme().
+ */
+function reproductor_theme($existing, $type, $theme, $path) {
+  return array(
+    'reproductor' => array(
+      'variables' => array('videos' => NULL),
+      ),
+  );
+}
+
+/**
+ * Implements hook_block_info().
+ *
+ * This hook declares what blocks are provided by the module.
+ */
+function reproductor_block_info() {
+  $blocks['reproductor_nnmx'] = array(
+    'info' => 'Reproductor nnmx',
+    'cache' => DRUPAL_NO_CACHE,
+  );
+  return $blocks;
+}
+
+
+/**
+ * Implements hook_block_view().
+ *
+ * This hook generates the contents of the blocks themselves.
+ */
+function reproductor_block_view($delta = '') {
+
+
+  $publicidad = dfp_serve_external_data('carrusel', $path);
+  $nids = _carrusel_get_all_data($path);
+
+  switch($delta) {
+    case 'reproductor_nnmx':
+      $block['subject'] = '';
+      $block['content'] = theme('reproductor', array('videos' => _reproductor_get_all_data()));
+    break;
+  }
+  return $block;
+}
+
+
+/**
+* them carrusel
+*/
+function theme_reproductor($variables) {
+  $output = '';
+  $output .= '<h1>Reporductor</h1>';
+  $output .= '<pre>';
+  $output .= implode(',', $variables['videos']);
+  $output .= '</pre>';
+return $output;
+}
+
+
+/**
+* retrieve an array with 15 node id's filtered by path
+*/
+function _reproductor_get_all_data() {
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', 'node')
+  ->entityCondition('bundle', array('video'))
+  ->propertyCondition('status', 1);
+  $query->propertyOrderBy('created', 'DESC');
+  $query->range(0, 15);
+  $query->addMetaData('account', user_load(1));
+  $result = $query->execute();
+  return array_keys($result['node']);
+}
+
+/**
+ * @} End of "defgroup carrusel".
+ */

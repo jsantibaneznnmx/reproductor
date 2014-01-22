@@ -1,0 +1,12 @@
+name = Reproductor de videos
+description = Reproductor de videos de noticiasnet.mx
+package = nnmx
+core = 7.x
+dependencies[] = block
+;stylesheets[all][] = css/carrusel.css
+;scripts[] = js/carrusel.js
+;scripts[] = js/carrusel_call.js
+; Information added by  packaging script on 2013-11-04
+version = "1.0"
+core = "7.x"
+project = "noticiasnetmx"

@@ -1,0 +1,25 @@
+<?php
+/**
+ * @file
+ * Install, update and uninstall functions for the reproductor
+ */
+
+
+
+
+/**
+ * Implements hook_uninstall().
+ *
+ * @ingroup reproductor
+ */
+function reproductor_install() {
+}
+
+
+/**
+ * Implements hook_uninstall().
+ *
+ * @ingroup reproductor
+ */
+function reproductor_uninstall() {
+}
