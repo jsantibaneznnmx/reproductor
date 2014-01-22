@@ -61,8 +61,12 @@ function reproductor_block_view($delta = '') {
 * them carrusel
 */
 function theme_reproductor($variables) {
+  $temp_node = node_load($variables['videos'][0]);
+  echo '<pre>';
+  print_r($temp_node);
+  echo '</pre>';
   $output = '';
-  $output .= '<section class="secciones">';
+  $output .= '<section class="secciones reproductor">';
   $output .= '<div class="view-header"><h1>TV Noticias</h1></div>';
   $output .= '<div class="rep-lista">';
   $output .= '<ul>';
