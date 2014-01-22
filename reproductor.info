@@ -3,7 +3,7 @@ description = Reproductor de videos de noticiasnet.mx
 package = nnmx
 core = 7.x
 dependencies[] = block
-;stylesheets[all][] = css/carrusel.css
+stylesheets[all][] = css/reproductor.css
 ;scripts[] = js/carrusel.js
 ;scripts[] = js/carrusel_call.js
 ; Information added by  packaging script on 2013-11-04

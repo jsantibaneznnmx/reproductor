@@ -1,0 +1,18 @@
+.reproductor {
+	width: 207%;
+}
+
+.rep-lista {
+width: 50%;
+float: left;
+}
+
+.rep-play {
+width: 50%;
+float: left;
+}
+
+.rep-item .rep-item-datos {
+display: inline-block;
+width: 50%;
+}
