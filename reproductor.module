@@ -77,7 +77,7 @@ function theme_reproductor($variables) {
   $output .= '</div>';
   $output .= '<article class="rep-play">';
   $output .= '<iframe width="310" height="174" src="//www.youtube.com/embed/' . $temp_node->field_youtube['und'][0]['video_id'] . '?rel=0" frameborder="0" allowfullscreen></iframe>';
-  $output .= '<h1>' . $temp_node->title . '</h1>';
+  $output .= '<h1>' . l(truncate_utf8($temp_node->title, 50, TRUE, TRUE), 'node/' . $temp_node->nid) . '</h1>';
   $output .= '<p>' . truncate_utf8(drupal_html_to_text($temp_node->body['und'][0]['summary']), 50, TRUE, TRUE) . '</p>';
   $output .= '</article>';
   $output .= '</section>';
@@ -90,10 +90,10 @@ return $output;
 function theme_reproductor_item($variables) {
   $temp_node = node_load($variables['nid']);
   $output = '';
-  $output .= '<li class="rep-item">';
+  $output .= '<li class="rep-item" data-nid="' . $temp_node->nid . '">';
   $output .= '<img src="http://img.youtube.com/vi/' . $temp_node->field_youtube['und'][0]['video_id'] . '/3.jpg" />';
   $output .= '<div class="rep-item-datos">';
-  $output .= '<h3>' . $temp_node->title . '</h3>';
+  $output .= '<h3>' . truncate_utf8($temp_node->title, 50, TRUE, TRUE) . '</h3>';
   $output .= '<p>' . truncate_utf8(drupal_html_to_text($temp_node->body['und'][0]['summary']), 50, TRUE, TRUE) . '</p>';
   $output .= '</div>';
   $output .= '</li>';
