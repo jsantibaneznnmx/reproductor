@@ -20,6 +20,9 @@ function reproductor_theme($existing, $type, $theme, $path) {
     'reproductor' => array(
       'variables' => array('videos' => NULL),
       ),
+    'reproductor_item' => array(
+      'variables' => array('nid' => NULL),
+      ),
   );
 }
 
@@ -60,9 +63,20 @@ function reproductor_block_view($delta = '') {
 function theme_reproductor($variables) {
   $output = '';
   $output .= '<h1>Reporductor</h1>';
-  $output .= '<pre>';
-  $output .= implode(',', $variables['videos']);
-  $output .= '</pre>';
+  $output .= '<ul>';
+  foreach($variables['videos'] as $nid) {
+   $output .= theme('reproductor_item', array('nid' => $nid));
+  }
+  $output .= '</ul>';
+return $output;
+}
+
+/**
+* them carrusel
+*/
+function theme_reproductor_item($variables) {
+  $output = '';
+  $output .= '<li>' . $variables['nid'] . '</li>';
 return $output;
 }
 
