@@ -21,7 +21,7 @@ function reproductor_theme($existing, $type, $theme, $path) {
       'variables' => array('videos' => NULL),
       ),
     'reproductor_item' => array(
-      'variables' => array('nid' => NULL),
+      'variables' => array('nid' => NULL, 'number' => NULL),
       ),
   );
 }
@@ -70,8 +70,10 @@ function theme_reproductor($variables) {
   $output .= '<div class="view-header"><h1>TV Noticias</h1></div>';
   $output .= '<div class="rep-lista">';
   $output .= '<ul>';
+  $n = 0;
   foreach($variables['videos'] as $nid) {
-   $output .= theme('reproductor_item', array('nid' => $nid));
+   $output .= theme('reproductor_item', array('nid' => $nid, 'number' => $n));
+   $n++;
   }
   $output .= '</ul>';
   $output .= '</div>';
@@ -90,7 +92,7 @@ return $output;
 function theme_reproductor_item($variables) {
   $temp_node = node_load($variables['nid']);
   $output = '';
-  $output .= '<li class="rep-item" data-nid="' . $temp_node->nid . '">';
+  $output .= '<li class="rep-item ' . ($variables['number'] == 0)? 'rep-item-select' . '" data-nid="' . $temp_node->nid . '">';
   $output .= '<img src="http://img.youtube.com/vi/' . $temp_node->field_youtube['und'][0]['video_id'] . '/3.jpg" />';
   $output .= '<div class="rep-item-datos">';
   $output .= '<h3>' . truncate_utf8($temp_node->title, 50, TRUE, TRUE) . '</h3>';
