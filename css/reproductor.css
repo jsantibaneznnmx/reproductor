@@ -11,6 +11,12 @@ max-height: 230px;
 overflow: auto;
 }
 
+.rep-lista ul {
+margin: 0;
+padding: 0;
+list-style-type: none;
+}
+
 .rep-play {
 width: 46%;
 padding: 2%;
@@ -18,8 +24,11 @@ float: left;
 max-height: 230px;
 overflow: hidden;
 }
-
+.rep-item img {
+	margin: 2%;
+}
 .rep-item .rep-item-datos {
+vertical-align: top;
 display: inline-block;
-width: 50%;
+width: 55%;
 }
