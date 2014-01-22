@@ -1,15 +1,22 @@
 .reproductor {
 	width: 207%;
+	padding-bottom: 10px;
 }
 
 .rep-lista {
-width: 50%;
+width: 46%;
 float: left;
+padding: 2%;
+max-height: 230px;
+overflow: auto;
 }
 
 .rep-play {
-width: 50%;
+width: 46%;
+padding: 2%;
 float: left;
+max-height: 230px;
+overflow: hidden;
 }
 
 .rep-item .rep-item-datos {
