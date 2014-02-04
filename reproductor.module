@@ -80,7 +80,11 @@ function theme_reproductor($variables) {
   $output .= '<article class="rep-play">';
   $output .= '<iframe width="310" height="174" src="//www.youtube.com/embed/' . $temp_node->field_youtube['und'][0]['video_id'] . '?rel=0" frameborder="0" allowfullscreen></iframe>';
   $output .= '<h1>' . l(truncate_utf8($temp_node->title, 50, TRUE, TRUE), 'node/' . $temp_node->nid) . '</h1>';
-  $output .= '<p>' . truncate_utf8(drupal_html_to_text($temp_node->body['und'][0]['summary']), 50, TRUE, TRUE) . '</p>';
+  if(!empty($temp_node->body['und'][0]['summary'])) {
+    $output .= '<p>' . truncate_utf8(drupal_html_to_text($temp_node->body['und'][0]['summary']), 50, TRUE, TRUE) . '</p>';
+  } else {
+    $output .= '<p></p>';
+  }
   $output .= '</article>';
   $output .= '</section>';
 return $output;
