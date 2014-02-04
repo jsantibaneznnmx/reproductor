@@ -97,7 +97,11 @@ function theme_reproductor_item($variables) {
   $output .= '<img src="http://img.youtube.com/vi/' . $temp_node->field_youtube['und'][0]['video_id'] . '/3.jpg" />';
   $output .= '<div class="rep-item-datos">';
   $output .= '<h3>' . truncate_utf8($temp_node->title, 50, TRUE, TRUE) . '</h3>';
-  $output .= '<p>' . truncate_utf8(drupal_html_to_text($temp_node->body['und'][0]['summary']), 50, TRUE, TRUE) . '</p>';
+  if(!empty($temp_node->body['und'][0]['summary'])) {
+    $output .= '<p>' . truncate_utf8(drupal_html_to_text($temp_node->body['und'][0]['summary']), 50, TRUE, TRUE) . '</p>';
+  } else {
+    $output .= '<p></p>';
+  }
   $output .= '</div>';
   $output .= '</li>';
 return $output;
